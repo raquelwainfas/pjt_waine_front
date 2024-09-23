@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wAIne</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="./images/logo-favicon.svg"/>
+</head>
+<body>
+    <header class="text-center my-4">
+        <img src="./images/twitter_header_1500x500.png" alt="Logo" class="img-fluid">
+    </header>
+
+    <!-- Botões de ação -->
+    <div class="button-container">
+        <button type="button" id="toggle-form" class="btn btn-outline-success btn-lg btn-custom" data-toggle="modal" data-target="#inserirVinhoModal">QUALIFICAR VINHO</button>
+    </div>
+    <div class="button-container">
+        <button type="button" id="toggle-table" class="btn btn-outline-success btn-lg btn-custom">LISTAR VINHOS</button>
+    </div>
+        
+    <!-- Início Modal - CADASTRAR VINHO -->
+    <div class="modal fade" id="inserirVinhoModal" tabindex="-1" role="dialog" aria-labelledby="inserirVinhoModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="inserirVinhoModalLabel">Qualificação</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="create-form">
+                        <div class="form-group">
+                            <input type="text" id="create-name" required class="form-control" placeholder="Nome do vinho">
+                            <input type="text" id="create-acidez-fixa" required class="form-control" placeholder="Acidez fixa">
+                            <input type="text" id="create-acidez-volatil" class="form-control" placeholder="Acidez volátil">
+                            <input type="text" id="create-acido-citrico" class="form-control" placeholder="Ácido cítrico">
+                            <input type="text" id="create-acucar-residual" class="form-control" placeholder="Açúcar residual">
+                            <input type="text" id="create-cloretos" class="form-control" placeholder="Cloretos">
+                            <input type="text" id="create-dioxido-livre" class="form-control" placeholder="Dióxido de enxofre livre">
+                            <input type="text" id="create-dioxido-total" class="form-control" placeholder="Dióxido de enxofre total">
+                            <input type="text" id="create-densidade" class="form-control" placeholder="Densidade">
+                            <input type="text" id="create-ph" class="form-control" placeholder="pH">
+                            <input type="text" id="create-sulfatos" class="form-control" placeholder="Sulfatos">
+                            <input type="text" id="create-alcool" class="form-control" placeholder="Álcool">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-success">Qualificar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fim Modal - CADASTRAR VINHO -->
+
+    <!-- Início estrutura tabela com os vinhos cadastrados-->
+    <div id="show-table" class="container" style="display: none;">
+        <table id="vinhos-table" class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Imagem</th>
+                    <th>ID</th>
+                    <th>Nome do vinho</th>
+                    <th>Acidez fixa</th>
+                    <th>Acidez volátil</th>
+                    <th>Ácido cítrico</th>
+                    <th>Açúcar residual</th>
+                    <th>Cloretos</th>
+                    <th>Dióxido de enxofre livre</th>
+                    <th>Dióxido de enxofre total</th>
+                    <th>Densidade</th>
+                    <th>pH</th>
+                    <th>Sulfatos</th>
+                    <th>Álcool</th>
+                    <th>Qualidade</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <!-- Fim estrutura tabela com os vinhos cadastrados-->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

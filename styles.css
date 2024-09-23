@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #FFF0F0;
+    display: flex;
+    flex-direction: column;
+    min-width: 10vh;
+}
+
+h1, h2, h6 {
+    color: #333;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid black;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    padding: 10px;
+    text-align: center;
+    background-color: #AD2D2D;
+    color: white;
+}
+
+img {
+    width: 100px;
+    height: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header img {
+    max-width: 100px; /* Ajuste este valor conforme necessário */
+    width: 100%; /* Certifique-se de que a imagem ocupe todo o espaço disponível */
+    height: auto; /* Mantenha a proporção da imagem */
+}
+
+/* #create-form,  */
+
+#show-table {
+    display: none;
+    margin-top: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+}
+
+.radio-group label {
+    margin-right: 10px; /* Espaçamento entre os elementos */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-custom {
+    width: 30%; /* Botões com largura total do container */
+    border: 2px solid #AD2D2D; /* Borda vermelha */
+    font-size: 1.5rem; /* Tamanho da fonte */
+    color: #AD2D2D
+}
