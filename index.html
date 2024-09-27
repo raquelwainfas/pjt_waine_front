@@ -1,94 +1,76 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wAIne</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="shortcut icon" href="./images/logo-favicon.svg"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="./images/logo-favicon2.png"/>
 </head>
 <body>
-    <header class="text-center my-4">
-        <img src="./images/twitter_header_1500x500.png" alt="Logo" class="img-fluid">
-    </header>
+    <div class="container">
+        <header>
+            <img src="./images/logo-favicon2.png"/>
+        </header>
 
-    <!-- Botões de ação -->
-    <div class="button-container">
-        <button type="button" id="toggle-form" class="btn btn-outline-success btn-lg btn-custom" data-toggle="modal" data-target="#inserirVinhoModal">QUALIFICAR VINHO</button>
-    </div>
-    <div class="button-container">
-        <button type="button" id="toggle-table" class="btn btn-outline-success btn-lg btn-custom">LISTAR VINHOS</button>
-    </div>
-        
-    <!-- Início Modal - CADASTRAR VINHO -->
-    <div class="modal fade" id="inserirVinhoModal" tabindex="-1" role="dialog" aria-labelledby="inserirVinhoModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="inserirVinhoModalLabel">Qualificação</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+        <main>
+            <section class="form-section">
+                <h2>Qualifique o vinho</h2>
+                <form id="predictionForm" onsubmit="event.preventDefault(); newItem();">
+                    <input type="text" id="name" placeholder="Nome do vinho" required>
+                    <input type="text" id="fixed_acidity" placeholder="Acidez fixa" required>
+                    <input type="text" id="volatile_acidity" placeholder="Acidez volátil" required>
+                    <input type="text" id="citric_acid" placeholder="Ácido cítrico" required>
+                    <input type="text" id="residual_sugar" placeholder="Açúcar residual" required>
+                    <input type="text" id="chlorides" placeholder="Cloretos" required>
+                    <input type="text" id="free_sulfur_dioxide" placeholder="Dióxido de enxofre livre" required>
+                    <input type="text" id="total_sulfur_dioxide" placeholder="Dióxido de enxofre total" required>
+                    <input type="text" id="density" placeholder="Densidade" required>
+                    <input type="text" id="ph" placeholder="ph" required>
+                    <input type="text" id="sulphates" placeholder="Sulfatos" required>
+                    <input type="text" id="alcohol" placeholder="Álcool" required>
+
+
+
+                    <button type="submit">Qualificar</button>
+                </form>
+            </section>
+
+            <section class="records-section">
+                <h2>Registros</h2>
+                <div class="records-container">
+                    <table id="recordsTable">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Acidez fixa</th>
+                                <th>Acidez volátil</th>
+                                <th>Ácido cítrico</th>
+                                <th>Açúcar residual</th>
+                                <th>Cloretos</th>
+                                <th>Dióxido de enxofre livre</th>
+                                <th>Dióxido de enxofre total</th>
+                                <th>Densidade</th>
+                                <th>ph</th>
+                                <th>Sulfatos</th>
+                                <th>Álcool</th>
+                                <th>Previsão/Qualificação</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Registros serão inseridos aqui -->
+                        </tbody>
+                    </table>
                 </div>
-                <div class="modal-body">
-                    <form id="create-form">
-                        <div class="form-group">
-                            <input type="text" id="create-name" required class="form-control" placeholder="Nome do vinho">
-                            <input type="text" id="create-acidez-fixa" required class="form-control" placeholder="Acidez fixa">
-                            <input type="text" id="create-acidez-volatil" class="form-control" placeholder="Acidez volátil">
-                            <input type="text" id="create-acido-citrico" class="form-control" placeholder="Ácido cítrico">
-                            <input type="text" id="create-acucar-residual" class="form-control" placeholder="Açúcar residual">
-                            <input type="text" id="create-cloretos" class="form-control" placeholder="Cloretos">
-                            <input type="text" id="create-dioxido-livre" class="form-control" placeholder="Dióxido de enxofre livre">
-                            <input type="text" id="create-dioxido-total" class="form-control" placeholder="Dióxido de enxofre total">
-                            <input type="text" id="create-densidade" class="form-control" placeholder="Densidade">
-                            <input type="text" id="create-ph" class="form-control" placeholder="pH">
-                            <input type="text" id="create-sulfatos" class="form-control" placeholder="Sulfatos">
-                            <input type="text" id="create-alcool" class="form-control" placeholder="Álcool">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-success">Qualificar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
-    <!-- Fim Modal - CADASTRAR VINHO -->
-
-    <!-- Início estrutura tabela com os vinhos cadastrados-->
-    <div id="show-table" class="container" style="display: none;">
-        <table id="vinhos-table" class="table table-hover table-bordered">
-            <thead>
-                <tr>
-                    <th>Imagem</th>
-                    <th>ID</th>
-                    <th>Nome do vinho</th>
-                    <th>Acidez fixa</th>
-                    <th>Acidez volátil</th>
-                    <th>Ácido cítrico</th>
-                    <th>Açúcar residual</th>
-                    <th>Cloretos</th>
-                    <th>Dióxido de enxofre livre</th>
-                    <th>Dióxido de enxofre total</th>
-                    <th>Densidade</th>
-                    <th>pH</th>
-                    <th>Sulfatos</th>
-                    <th>Álcool</th>
-                    <th>Qualidade</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
-    <!-- Fim estrutura tabela com os vinhos cadastrados-->
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="js/script.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
