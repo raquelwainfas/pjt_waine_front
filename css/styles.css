@@ -1,114 +1,137 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #FFF0F0;
-    display: flex;
-    flex-direction: column;
-    min-width: 10vh;
-}
-
-h1, h2, h6 {
+    background-color: #f4f4f4;
     color: #333;
+    background-image: url('https://images01.nicepage.com/c461c07a441a5d220e8feb1a/68a72ac64a305c539fb36d25/fgggg-min.jpg');
+    background-size: cover; /* A imagem vai cobrir toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
 }
-
-form {
-    margin-bottom: 20px;
+  
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-label {
-    display: block;
-    margin-top: 10px;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    border: 1px solid black;
-}
-
-td {
-    padding: 10px;
-    text-align: center;
-}
-
-th {
-    padding: 10px;
-    text-align: center;
-    background-color: #AD2D2D;
-    color: white;
-}
-
-img {
-    width: 100px;
-    height: auto;
-}
-
+  
 header {
     text-align: center;
     margin-bottom: 20px;
 }
-
-header img {
-    max-width: 100px; /* Ajuste este valor conforme necessário */
-    width: 100%; /* Certifique-se de que a imagem ocupe todo o espaço disponível */
-    height: auto; /* Mantenha a proporção da imagem */
+  
+h1 {
+    color: #4CAF50;
+    font-size: 2em;
 }
-
-/* #create-form,  */
-
-#show-table {
-    display: none;
-    margin-top: 20px;
-}
-
-.button-container {
+  
+main {
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    flex-direction: column;
+    gap: 20px;
 }
-
-.radio-group {
+  
+.form-section, .records-section {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  
+h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+  
+form {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+  
+label {
+    font-weight: bold;
+}
+  
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+  
+button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+  
+button:hover {
+    background-color: #45a049;
+}
+  
+.records-container {
+    overflow-x: auto;
+}
+  
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+  
+th, td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+  
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    white-space: nowrap; /* Impedir quebra de linha no cabeçalho */
 }
 
-.radio-group label {
-    margin-right: 10px; /* Espaçamento entre os elementos */
+td {
+    white-space: nowrap; /* Impedir quebra de linha nas células */
+}
+  
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
 
-.button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+/* Atualização do botão de exclusão */
+.table-action {
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    color: #d9534f;
+    transition: color 0.3s;
 }
 
-.btn-custom {
-    width: 30%; /* Botões com largura total do container */
-    border: 2px solid #AD2D2D; /* Borda vermelha */
-    font-size: 1.5rem; /* Tamanho da fonte */
-    color: #AD2D2D
+.table-action i {
+    cursor: pointer;
+    font-size: 20px;
+    color: #d9534f;
+    transition: color 0.3s;
+    display: inline-block; /* Garante que o ícone se comporte como um bloco inline */
+}
+
+.table-action i:hover {
+    color: #c9302c;
 }
